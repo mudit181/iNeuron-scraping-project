@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+   <div class="header">Ineuron Courses Data</div>
+      <div style="overflow-x:auto; overflow-y:scroll;">
+          <table>
+              <tr>
+                 <th>Course Name</th>
+                 <th>Description</th>
+                 <th>Pricing for Indian students</th>
+                 <th>Pricing for International student</th>
+                 <!-- <th>CourseMeta</th> -->
+                 <th>requirements</th>
+                 <th>features</th>
+                 <th>learn</th>
+                 <th>Language</th>
+                 <!-- <th>curriculum_overview</th>
+                  <th>projects_overview</th> -->
+                  <th>instructorsDetails</th>
+                 <th>course url</th>
+                 <th width="1000">Comments</th>
+              </tr>
+             {% for data in ineuron_data %}
+          <tr>
+              <td>{{data['course_name']}}</td>
+             <td>{{data['description']}}</td>
+             <td>Rs{{data['pricing']['IN']}}</td>
+             <td>${{data['pricing']['US']}}</td>
+             <td>{{data['courseMeta'][0]['overview']['requirements']}} </td>
+              <td>{{data['courseMeta'][0]['overview']['features']}}</td>
+             <td>{{data['courseMeta'][0]['overview']['learn']}} </td>
+             <td>{{data['courseMeta'][0]['overview']['language']}}</td>
+              <!-- <td>{{data['curriculum_overview']}}</td>
+             <td>{{data['projects_overview']}} </td> -->
+             <td>{{data['instructorsDetails']}} </td>
+             <td>{{data['course_url']}}</td>
+
+           {% endfor %}
+          </table>
+      </div>
+
+
+    </div>
+
+
+
+</body>
+
+
+</html>

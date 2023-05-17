@@ -1,0 +1,9 @@
+Flask
+Numpy
+Pandas
+Requests
+beautifulsoup4==4.9.1
+bs4==0.0.1
+pymongo
+urllib3
+Flask-Cors
